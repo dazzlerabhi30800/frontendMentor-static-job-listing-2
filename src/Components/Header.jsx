@@ -3,31 +3,31 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./Styles/Style.css";
 
-const Header = () => {
+const Header = ({ filterTags, removeTag, handleClear }) => {
+  // console.log(filterTags.length);
   return (
     <header>
-      <div className="filter--wrapper">
+      <div
+        className={
+          filterTags.length > 0 ? "filter--wrapper show" : "filter--wrapper"
+        }
+      >
         <div className="filter--container">
-          <div className="filter">
-            <span>Frontend</span>
-            <div className="remove--btn">
-              <FontAwesomeIcon icon={faTimes} />
-            </div>
-          </div>
-          <div className="filter">
-            <span>CSS</span>
-            <div className="remove--btn">
-              <FontAwesomeIcon icon={faTimes} />
-            </div>
-          </div>
-          <div className="filter">
-            <span>Backend</span>
-            <div className="remove--btn">
-              <FontAwesomeIcon icon={faTimes} />
-            </div>
-          </div>
+          {filterTags &&
+            filterTags.map((tag, i) => {
+              return (
+                <div className="filter" key={i}>
+                  <span>{tag}</span>
+                  <div className="remove--btn" onClick={() => removeTag(tag)}>
+                    <FontAwesomeIcon icon={faTimes} />
+                  </div>
+                </div>
+              );
+            })}
         </div>
-        <div className="clear--btn">clear</div>
+        <div onClick={handleClear} className="clear--btn">
+          clear
+        </div>
       </div>
     </header>
   );

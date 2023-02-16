@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import JobComp from "./JobComp";
-import data from "./data.jsx";
 
-const JobListing = () => {
-  const [jobData, setJobData] = useState(data);
-  const jobComp = jobData.map((data, i) => {
-    return <JobComp data={data} key={i} />;
-  });
+const JobListing = ({ handleFilter, jobData, filteredJobs }) => {
   return (
     <main>
-      <div className="job--container">{jobComp}</div>
+      <div className="job--container">
+        {jobData.length === 0 ? (
+          <p>Jobs are Fetching</p>
+        ) : (
+          filteredJobs.map((data, i) => (
+            <JobComp data={data} handleFilter={handleFilter} key={i} />
+          ))
+        )}
+      </div>
     </main>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 
-const JobComp = ({ data }) => {
+const JobComp = ({ data, handleFilter }) => {
   const tags = [data.role, data.level];
   if (data.tools) {
     tags.push(...data.tools);
@@ -27,7 +27,7 @@ const JobComp = ({ data }) => {
       <div className="filter--card--wrapper">
         {tags.map((tag, i) => {
           return (
-            <div className="card" key={i}>
+            <div className="card" key={i} onClick={() => handleFilter(tag)}>
               {tag}
             </div>
           );

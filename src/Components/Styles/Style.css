@@ -42,7 +42,6 @@ header {
 }
 
 .filter--wrapper {
-  display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -54,7 +53,11 @@ header {
   width: 50%;
   height: max-content;
   left: 50%;
+  display: none;
   transform: translateX(-50%);
+}
+.filter--wrapper.show {
+  display: flex;
 }
 
 .filter--container {
@@ -188,6 +191,7 @@ main {
   padding: 5px 10px;
   font-size: 0.9rem;
   border-radius: 3px;
+  user-select: none;
 }
 
 @media (hover: hover) {
