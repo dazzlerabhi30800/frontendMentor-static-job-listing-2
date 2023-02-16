@@ -34,7 +34,7 @@ header {
   display: flex;
   position: relative;
   height: 25vh;
-  background-image: url("/public/images/bg-header-mobile.svg");
+  background-image: url("/images/bg-header-mobile.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -211,7 +211,7 @@ main {
 
 @media Screen and (min-width: 950px) {
   header {
-    background-image: url("/public/images/bg-header-desktop.svg");
+    background-image: url("/images/bg-header-desktop.svg");
   }
   main {
     width: 80%;
