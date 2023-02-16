@@ -18,7 +18,7 @@ const JobComp = ({ data, handleFilter }) => {
             {data.new && <span>New!</span>}
             {data.featured && <span>featured</span>}
           </div>
-          <div className="role">{data.position}</div>
+          <h1 className="role">{data.position}</h1>
           <div className="add--info">
             {data.postedAt} . {data.contract} . {data.location}
           </div>
